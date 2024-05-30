@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ir/Args/Results%20of%20Searching%20Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
 import 'package:ir/Args/Results%20of%20Searching%20Args/resulrsargs.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -82,90 +84,101 @@ class SearchFieldArgs extends StatelessWidget {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.035,
                     ),
-                    Form(
-                      key: _formKey,
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.85,
-                        child: TextFormField(
-                          keyboardType: TextInputType.text,
-                          keyboardAppearance: Brightness.dark,
-                          controller: controller,
-                          focusNode: focusNode,
-                          textInputAction: TextInputAction.search,
-                          onEditingComplete: () {
-                            if (_formKey.currentState?.validate() ?? false) {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(builder: (context) {
-                                  return ResultsArgs(
-                                    searchingtext: controller.text,
-                                    onBack: () {
-                                      controller.clear();
-                                      FocusScope.of(context).unfocus();
-                                    },
+                    BlocBuilder<ResultsofsearchingargscubitCubit,
+                        ResultsofsearchingargscubitState>(
+                      builder: (context, state) {
+                        return Form(
+                          key: _formKey,
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.85,
+                            child: TextFormField(
+                              keyboardType: TextInputType.text,
+                              keyboardAppearance: Brightness.dark,
+                              controller: controller,
+                              focusNode: focusNode,
+                              textInputAction: TextInputAction.search,
+                              onEditingComplete: () {
+                                if (_formKey.currentState?.validate() ??
+                                    false) {
+                                  context
+                                      .read<ResultsofsearchingargscubitCubit>()
+                                      .emitResultsofsearchingargs(
+                                        searchtext: controller.text,
+                                      );
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context) {
+                                      return ResultsArgs(
+                                        searchingtext: controller.text,
+                                        onBack: () {
+                                          controller.clear();
+                                          FocusScope.of(context).unfocus();
+                                        },
+                                      );
+                                    }),
                                   );
-                                }),
-                              );
-                            }
-                          },
-                          cursorColor: Colors.blueAccent,
-                          cursorRadius: const Radius.circular(50),
-                          decoration: InputDecoration(
-                            prefixIcon: PhosphorIcon(
-                              PhosphorIcons.magnifyingGlass(
-                                PhosphorIconsStyle.regular,
+                                }
+                              },
+                              cursorColor: Colors.blueAccent,
+                              cursorRadius: const Radius.circular(50),
+                              decoration: InputDecoration(
+                                prefixIcon: PhosphorIcon(
+                                  PhosphorIcons.magnifyingGlass(
+                                    PhosphorIconsStyle.regular,
+                                  ),
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                                hintText: "Enter your text here",
+                                hintStyle: const TextStyle(
+                                  color: Colors.white,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                    color: Colors.white,
+                                    width: 1.2,
+                                  ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                    color: Colors.white,
+                                    width: 1.2,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                    color: Color(0xFF448AFF),
+                                    width: 1.2,
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                    color: Colors.red,
+                                    width: 1.2,
+                                  ),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                    color: Colors.red,
+                                    width: 1.2,
+                                  ),
+                                ),
                               ),
-                              color: Colors.white,
-                              size: 20,
-                            ),
-                            hintText: "Enter your text here",
-                            hintStyle: const TextStyle(
-                              color: Colors.white,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                color: Colors.white,
-                                width: 1.2,
-                              ),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                color: Colors.white,
-                                width: 1.2,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                color: Color(0xFF448AFF),
-                                width: 1.2,
-                              ),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                color: Colors.red,
-                                width: 1.2,
-                              ),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                color: Colors.red,
-                                width: 1.2,
-                              ),
+                              style: const TextStyle(color: Colors.white),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter some text';
+                                }
+                                return null;
+                              },
                             ),
                           ),
-                          style: const TextStyle(color: Colors.white),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
+                        );
+                      },
                     ),
                   ],
                 ),

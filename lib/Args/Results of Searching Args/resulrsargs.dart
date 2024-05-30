@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ir/Args/Results%20of%20Searching%20Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
 import 'package:ir/Args/Results%20of%20Searching%20Args/textrsultargs.dart';
+import 'package:ir/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 // ignore: must_be_immutable
@@ -11,93 +14,93 @@ class ResultsArgs extends StatelessWidget {
   });
   String searchingtext;
   final VoidCallback onBack;
-  List<Map<String, dynamic>> results = [
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary':
-          'dhjqjdhlkqldklqkjdjhlkjhlashlhlahljvljaljhvjhdaljhvlkhadlhvlhlhljvhljhsljhvdjhalvjlakvlkdhslkvhhvlahdlkjvl',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'dhjqjdhlkqldklqkjdj',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'dhjqjdhlkqldklqkjdj',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'dhjqjdhlkqldklqkjdj',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'dhjqjdhlkqldklqkjdj',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'dhjqjdhlkqldklqkjdj',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'dhjqjdhlkqldklqkjdj',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'dhjqjdhlkqldklqkjdj',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'dhjqjdhlkqldklqkjdj',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'dhjqjdhlkqldklqkjdj',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'dhjqjdhlkqldklqkjdj',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
-    },
-    {
-      'title': 'Affects of letrozole on pregnant women',
-      'condition': 'jdwqhjhdlqhlkdlqkd',
-      'summary': 'Mina Farhat',
-      'detailed_description': 'jkjhqkjhdlqhljkokpdq',
-      'eligibility': 'Mina Farhat',
-    },
-  ];
+  // List<Map<String, dynamic>> results = [
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary':
+  //         'dhjqjdhlkqldklqkjdjhlkjhlashlhlahljvljaljhvjhdaljhvlkhadlhvlhlhljvhljhsljhvdjhalvjlakvlkdhslkvhhvlahdlkjvl',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'dhjqjdhlkqldklqkjdj',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'dhjqjdhlkqldklqkjdj',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'dhjqjdhlkqldklqkjdj',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'dhjqjdhlkqldklqkjdj',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'dhjqjdhlkqldklqkjdj',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'dhjqjdhlkqldklqkjdj',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'dhjqjdhlkqldklqkjdj',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'dhjqjdhlkqldklqkjdj',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'dhjqjdhlkqldklqkjdj',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'dhjqjdhlkqldklqkjdj',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'kjbkjhkjgkjvgfdrdrdgjvhbvj',
+  //   },
+  //   {
+  //     'title': 'Affects of letrozole on pregnant women',
+  //     'condition': 'jdwqhjhdlqhlkdlqkd',
+  //     'summary': 'Mina Farhat',
+  //     'detailed_description': 'jkjhqkjhdlqhljkokpdq',
+  //     'eligibility': 'Mina Farhat',
+  //   },
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -136,9 +139,9 @@ class ResultsArgs extends StatelessWidget {
                           colors: [
                             Colors.purple.shade500,
                             Colors.pink,
-                           // Colors.deepOrange.shade400,
+                            // Colors.deepOrange.shade400,
                             Colors.blueAccent,
-                              Colors.green.shade700
+                            Colors.green.shade700
                           ],
                         ).createShader(bounds);
                       },
@@ -184,23 +187,57 @@ class ResultsArgs extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.9,
-                child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: results.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return TextResultArgs(
-                      title: results[index]['title'],
-                      summary: results[index]['summary'],
-                      condition: results[index]['condition'],
-                      detailedDescription: results[index]
-                          ['detailed_description'],
-                      eligibility: results[index]['eligibility'],
-                    );
-                  },
-                ),
+              BlocBuilder<ResultsofsearchingargscubitCubit,
+                  ResultsofsearchingargscubitState>(
+                builder: (context, state) {
+                  return state.maybeWhen(
+                    success: (resultsofsearchingentity) => SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      child: ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: resultsofsearchingentity
+                            .results.length,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return TextResultArgs(
+                            title: resultsofsearchingentity
+                                .results[index].title,
+                            summary: resultsofsearchingentity
+                                .results[index].summary,
+                            condition: resultsofsearchingentity
+                                .results[index].condition,
+                            detailedDescription:
+                                resultsofsearchingentity
+                                    .results[index].detailedDescription,
+                            eligibility: resultsofsearchingentity
+                                .results[index].eligibility,
+                          );
+                        },
+                      ),
+                    ),
+                    loading: () => const CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
+                    error: (networkExceptions) => const SizedBox(),
+                    orElse: () => GestureDetector(
+                      onTap: () {
+                        context
+                            .read<ResultsofsearchingclinicalcubitCubit>()
+                            .emitresultsofsearchingclinical(
+                              searchtext: searchingtext,
+                            );
+                      },
+                      child: const Text(
+                        "Reload",
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
             ],
           ),
