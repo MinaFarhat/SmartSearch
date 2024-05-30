@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         InkWell(
                           overlayColor:
-                              MaterialStateProperty.all(Colors.transparent),
+                              WidgetStateProperty.all(Colors.transparent),
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) {
@@ -133,7 +133,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         InkWell(
                           overlayColor:
-                              MaterialStateProperty.all(Colors.transparent),
+                              WidgetStateProperty.all(Colors.transparent),
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) {

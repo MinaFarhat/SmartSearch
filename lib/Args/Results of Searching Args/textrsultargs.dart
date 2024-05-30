@@ -20,7 +20,7 @@ class TextResultArgs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      overlayColor: MaterialStateProperty.all(Colors.transparent),
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) {
