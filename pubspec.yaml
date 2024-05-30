@@ -45,6 +45,9 @@ dependencies:
   colorful_print: ^0.1.2
   dartz: ^0.10.1
   json_annotation: ^4.0.1
+  flutter_bloc: ^8.1.5
+  bloc: ^8.1.4
+  get_it: ^7.7.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
