@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:ir/Args/Results%20of%20Searching%20Args/data/Model/resultsofsearching.dart';
+import 'package:ir/Args/data/Model/resultsofsearching.dart';
 import 'package:ir/Core/api/api_consumer.dart';
 
 abstract class Resultsofsearchingargswebservice {

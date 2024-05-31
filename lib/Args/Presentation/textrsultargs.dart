@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:ir/Clinical%20Trials/Results%20of%20Searching%20Clinical/detailofresultclinical.dart';
+import 'package:ir/Args/Presentation/detailofresultargs.dart';
 
 // ignore: must_be_immutable
-class TextResultClinical extends StatelessWidget {
+class TextResultArgs extends StatelessWidget {
   String title;
   String summary;
   String condition;
   String detailedDescription;
   String eligibility;
-  TextResultClinical({
+  TextResultArgs({
     required this.title,
     required this.summary,
     required this.condition,
@@ -22,9 +22,9 @@ class TextResultClinical extends StatelessWidget {
     return InkWell(
       overlayColor: WidgetStateProperty.all(Colors.transparent),
       onTap: () {
-         Navigator.of(context).push(
+        Navigator.of(context).push(
           MaterialPageRoute(builder: (context) {
-            return DetailsOfResultsClinical(
+            return DetailsOfResultsArgs(
               title: title,
               condition: condition,
               summary: summary,

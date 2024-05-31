@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ir/Args/Results%20of%20Searching%20Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
-import 'package:ir/Args/Results%20of%20Searching%20Args/textrsultargs.dart';
+import 'package:ir/Args/Presentation/textrsultargs.dart';
+import 'package:ir/Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
 import 'package:ir/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -195,20 +195,18 @@ class ResultsArgs extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.9,
                       child: ListView.builder(
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount: resultsofsearchingentity
-                            .results.length,
+                        itemCount: resultsofsearchingentity.results.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           return TextResultArgs(
-                            title: resultsofsearchingentity
-                                .results[index].title,
-                            summary: resultsofsearchingentity
-                                .results[index].summary,
+                            title:
+                                resultsofsearchingentity.results[index].title,
+                            summary:
+                                resultsofsearchingentity.results[index].summary,
                             condition: resultsofsearchingentity
                                 .results[index].condition,
-                            detailedDescription:
-                                resultsofsearchingentity
-                                    .results[index].detailedDescription,
+                            detailedDescription: resultsofsearchingentity
+                                .results[index].detailedDescription,
                             eligibility: resultsofsearchingentity
                                 .results[index].eligibility,
                           );

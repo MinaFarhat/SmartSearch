@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ir/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart';
+import 'package:ir/Args/Presentation/resulrsargs.dart';
+import 'package:ir/Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-import '../Results of Searching Clinical/resulrsclinical.dart';
-
-class SearchFieldClinical extends StatelessWidget {
-  SearchFieldClinical({super.key});
+// ignore: must_be_immutable
+class SearchFieldArgs extends StatelessWidget {
+  SearchFieldArgs({super.key});
 
   final TextEditingController controller = TextEditingController();
   final FocusNode focusNode = FocusNode();
@@ -55,7 +55,7 @@ class SearchFieldClinical extends StatelessWidget {
                           colors: [
                             Colors.purple.shade500,
                             Colors.pink,
-                            //  Colors.deepOrange.shade400,
+                            // Colors.deepOrange.shade400,
                             Colors.blueAccent,
                             Colors.green.shade700
                           ],
@@ -74,7 +74,7 @@ class SearchFieldClinical extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.015,
                     ),
                     const Text(
-                      "Search about Clinical Trials",
+                      "Search about Online Args",
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -84,31 +84,30 @@ class SearchFieldClinical extends StatelessWidget {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.035,
                     ),
-                    BlocBuilder<ResultsofsearchingclinicalcubitCubit,
-                        ResultsofsearchingclinicalcubitState>(
+                    BlocBuilder<ResultsofsearchingargscubitCubit,
+                        ResultsofsearchingargscubitState>(
                       builder: (context, state) {
                         return Form(
                           key: _formKey,
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.85,
                             child: TextFormField(
+                              keyboardType: TextInputType.text,
+                              keyboardAppearance: Brightness.dark,
                               controller: controller,
                               focusNode: focusNode,
                               textInputAction: TextInputAction.search,
-                              keyboardType: TextInputType.text,
-                              keyboardAppearance: Brightness.dark,
                               onEditingComplete: () {
                                 if (_formKey.currentState?.validate() ??
                                     false) {
                                   context
-                                      .read<
-                                          ResultsofsearchingclinicalcubitCubit>()
-                                      .emitresultsofsearchingclinical(
+                                      .read<ResultsofsearchingargscubitCubit>()
+                                      .emitResultsofsearchingargs(
                                         searchtext: controller.text,
                                       );
                                   Navigator.of(context).push(
                                     MaterialPageRoute(builder: (context) {
-                                      return ResultsClinical(
+                                      return ResultsArgs(
                                         searchingtext: controller.text,
                                         onBack: () {
                                           controller.clear();
@@ -196,7 +195,8 @@ class SearchFieldClinical extends StatelessWidget {
                 'Version 1.1.0',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
                 ),
               ),
             ],

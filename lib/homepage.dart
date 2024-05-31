@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ir/Args/Search%20Field/searchfieldargs.dart';
-import 'package:ir/Clinical%20Trials/Search%20Field/searchfieldclinical.dart';
+import 'package:ir/Args/Presentation/searchfieldargs.dart';
+import 'package:ir/Clinical%20Trials/Presentation/searchfieldclinical.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {

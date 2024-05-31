@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ir/Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
+import 'package:ir/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart';
 import 'package:ir/homepage.dart';
+import 'package:ir/injection.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +28,17 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<ResultsofsearchingargscubitCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<ResultsofsearchingclinicalcubitCubit>(),
+          ),
+        ],
+        child: HomePage(),
+      ),
     );
   }
 }

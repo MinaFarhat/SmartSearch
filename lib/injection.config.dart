@@ -14,8 +14,7 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:internet_connection_checker/internet_connection_checker.dart'
     as _i6;
 
-import 'Args/Results%20of%20Searching%20Args/data/Web%20Service/resultsofsearchingargs.dart'
-    as _i11;
+import 'Args/data/Web%20Service/resultsofsearchingargs.dart' as _i11;
 import 'Core/api/api_consumer.dart' as _i9;
 import 'Core/api/dio_consumer.dart' as _i10;
 import 'Core/api/logging_interceptor.dart' as _i3;
