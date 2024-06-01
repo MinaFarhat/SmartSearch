@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 // ignore: must_be_immutable
-class DetailsOfResultsClinical extends StatefulWidget {
+class DetailsOfResultsClinical extends StatelessWidget {
   String title;
   String condition;
   String summary;
@@ -16,16 +16,6 @@ class DetailsOfResultsClinical extends StatefulWidget {
     required this.eligibility,
     super.key,
   });
-
-  @override
-  State<DetailsOfResultsClinical> createState() =>
-      _DetailsOfResultsClinicalState();
-}
-
-class _DetailsOfResultsClinicalState extends State<DetailsOfResultsClinical> {
-  bool like = false;
-
-  bool dislike = false;
 
   @override
   Widget build(BuildContext context) {
@@ -86,85 +76,32 @@ class _DetailsOfResultsClinicalState extends State<DetailsOfResultsClinical> {
               detail(
                 context: context,
                 title: 'The Searching Result:',
-                text: widget.title,
+                text: title,
               ),
               detail(
                 context: context,
                 title: 'The Condition:',
-                text: widget.condition,
+                text: condition,
               ),
               detail(
                 context: context,
                 title: 'The Summary:',
-                text: widget.summary,
+                text: summary,
               ),
               detail(
                 context: context,
                 title: 'The Detailed Description:',
-                text: widget.detailedDescription,
+                text: detailedDescription,
               ),
               detail(
                 context: context,
                 title: 'The Eligibility:',
-                text: widget.eligibility,
+                text: eligibility,
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 22),
-                child: Row(
-                  children: [
-                    Text(
-                      "was the Result helpful?",
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey.shade200,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.02,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          like = !like;
-                        });
-                      },
-                      child: Icon(
-                        like
-                            ? PhosphorIcons.thumbsUp(PhosphorIconsStyle.fill)
-                            : PhosphorIcons.thumbsUp(
-                                PhosphorIconsStyle.regular),
-                        size: 30,
-                        color: Colors.blueAccent,
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.03,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          dislike = !dislike;
-                        });
-                      },
-                      child: Icon(
-                        dislike
-                            ? PhosphorIcons.thumbsDown(PhosphorIconsStyle.fill)
-                            : PhosphorIcons.thumbsDown(
-                                PhosphorIconsStyle.regular),
-                        size: 30,
-                        color: Colors.redAccent,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+             ],
           ),
         ),
         bottomNavigationBar: const Padding(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 // ignore: must_be_immutable
-class DetailsOfResultsArgs extends StatefulWidget {
+class DetailsOfResultsArgs extends StatelessWidget {
   String title;
   String condition;
   String summary;
@@ -16,15 +16,6 @@ class DetailsOfResultsArgs extends StatefulWidget {
     required this.eligibility,
     super.key,
   });
-
-  @override
-  State<DetailsOfResultsArgs> createState() => _DetailsOfResultsArgsState();
-}
-
-class _DetailsOfResultsArgsState extends State<DetailsOfResultsArgs> {
-  bool like = false;
-
-  bool dislike = false;
 
   @override
   Widget build(BuildContext context) {
@@ -85,103 +76,30 @@ class _DetailsOfResultsArgsState extends State<DetailsOfResultsArgs> {
               detail(
                 context: context,
                 title: 'The Searching Result:',
-                text: widget.title,
+                text: title,
               ),
               detail(
                 context: context,
                 title: 'The Condition:',
-                text: widget.condition,
+                text: condition,
               ),
               detail(
                 context: context,
                 title: 'The Summary:',
-                text: widget.summary,
+                text: summary,
               ),
               detail(
                 context: context,
                 title: 'The Detailed Description:',
-                text: widget.detailedDescription,
+                text: detailedDescription,
               ),
               detail(
                 context: context,
                 title: 'The Eligibility:',
-                text: widget.eligibility,
+                text: eligibility,
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 22),
-                child: Row(
-                  children: [
-                    Text(
-                      "was the Result helpful?",
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey.shade200,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.02,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        if (like == false) {
-                          setState(() {
-                            like = true;
-                          });
-                        } else {
-                          setState(() {
-                            like = false;
-                          });
-                        }
-                      },
-                      child: like == false
-                          ? Icon(
-                              PhosphorIcons.thumbsUp(
-                                  PhosphorIconsStyle.regular),
-                              size: 30,
-                              color: Colors.blueAccent,
-                            )
-                          : Icon(
-                              PhosphorIcons.thumbsUp(PhosphorIconsStyle.fill),
-                              size: 30,
-                              color: Colors.blueAccent,
-                            ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.03,
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          if (dislike == false) {
-                            setState(() {
-                              dislike = true;
-                            });
-                          } else {
-                            setState(() {
-                              dislike = false;
-                            });
-                          }
-                        },
-                        child: dislike == false
-                            ? Icon(
-                                PhosphorIcons.thumbsDown(
-                                    PhosphorIconsStyle.regular),
-                                size: 30,
-                                color: Colors.redAccent,
-                              )
-                            : Icon(
-                                PhosphorIcons.thumbsDown(
-                                    PhosphorIconsStyle.fill),
-                                size: 30,
-                                color: Colors.redAccent,
-                              )),
-                  ],
-                ),
               ),
             ],
           ),
