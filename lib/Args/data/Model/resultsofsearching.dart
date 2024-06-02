@@ -6,7 +6,7 @@ part 'resultsofsearching.g.dart';
 @JsonSerializable()
 class ResultsofsearchingEntity {
   @JsonKey(name: "data")
-  List<ResultsOfSearchingData> results;
+  final List<ResultsOfSearchingData> results;
 
   // Constructor
   ResultsofsearchingEntity(this.results);

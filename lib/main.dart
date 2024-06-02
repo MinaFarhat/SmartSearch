@@ -6,7 +6,8 @@ import 'package:ir/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit
 import 'package:ir/homepage.dart';
 import 'package:ir/injection.dart';
 
-void main() {
+void main() async {
+  await configureDependencies();
   runApp(const MyApp());
 }
 
@@ -22,22 +23,22 @@ class MyApp extends StatelessWidget {
         statusBarColor: Colors.grey.shade900,
       ),
     );
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
-        useMaterial3: true,
-      ),
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => getIt<ResultsofsearchingargscubitCubit>(),
-          ),
-          BlocProvider(
-            create: (context) => getIt<ResultsofsearchingclinicalcubitCubit>(),
-          ),
-        ],
-        child: HomePage(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<ResultsofsearchingclinicalcubitCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ResultsofsearchingargscubitCubit>(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+          useMaterial3: true,
+        ),
+        home: HomePage(),
       ),
     );
   }

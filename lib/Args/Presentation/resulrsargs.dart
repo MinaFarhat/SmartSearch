@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ir/Args/Presentation/textrsultargs.dart';
-import 'package:ir/Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
-import 'package:ir/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart';
+import 'package:ir/Args/data/Model/resultsofsearching.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 // ignore: must_be_immutable
@@ -11,8 +9,10 @@ class ResultsArgs extends StatelessWidget {
     required this.searchingtext,
     required this.onBack,
     super.key,
+    required this.resultsofsearchingentity,
   });
   String searchingtext;
+  final ResultsofsearchingEntity resultsofsearchingentity;
   final VoidCallback onBack;
   // List<Map<String, dynamic>> results = [
   //   {
@@ -187,55 +187,25 @@ class ResultsArgs extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
-              BlocBuilder<ResultsofsearchingargscubitCubit,
-                  ResultsofsearchingargscubitState>(
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    success: (resultsofsearchingentity) => SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      child: ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: resultsofsearchingentity.results.length,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return TextResultArgs(
-                            title:
-                                resultsofsearchingentity.results[index].title,
-                            summary:
-                                resultsofsearchingentity.results[index].summary,
-                            condition: resultsofsearchingentity
-                                .results[index].condition,
-                            detailedDescription: resultsofsearchingentity
-                                .results[index].detailedDescription,
-                            eligibility: resultsofsearchingentity
-                                .results[index].eligibility,
-                          );
-                        },
-                      ),
-                    ),
-                    loading: () => const CircularProgressIndicator(
-                      color: Colors.white,
-                    ),
-                    error: (networkExceptions) => const SizedBox(),
-                    orElse: () => GestureDetector(
-                      onTap: () {
-                        context
-                            .read<ResultsofsearchingclinicalcubitCubit>()
-                            .emitresultsofsearchingclinical(
-                              searchtext: searchingtext,
-                            );
-                      },
-                      child: const Text(
-                        "Reload",
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  );
-                },
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: resultsofsearchingentity.results.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return TextResultArgs(
+                      title: resultsofsearchingentity.results[index].title,
+                      summary: resultsofsearchingentity.results[index].summary,
+                      condition:
+                          resultsofsearchingentity.results[index].condition,
+                      detailedDescription: resultsofsearchingentity
+                          .results[index].detailedDescription,
+                      eligibility:
+                          resultsofsearchingentity.results[index].eligibility,
+                    );
+                  },
+                ),
               ),
             ],
           ),

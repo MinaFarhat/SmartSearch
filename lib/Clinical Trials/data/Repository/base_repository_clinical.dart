@@ -4,5 +4,5 @@ import 'package:ir/Core/error/network_exceptions.dart';
 
 abstract class BaseRepositoryClinical {
   Future<Either<NetworkExceptions, ResultsofsearchingclinicalEntity>>
-      reultsofsearchingclinical(String searchtext);
+      reultsofsearchingclinical(String searchtext,String datasetname);
 }

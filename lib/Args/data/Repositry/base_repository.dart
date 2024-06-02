@@ -4,5 +4,5 @@ import 'package:ir/Core/error/network_exceptions.dart';
 
 abstract class ResultsofsearchingargsBaseRepository {
   Future<Either<NetworkExceptions, ResultsofsearchingEntity>>
-      resultsofsearchingargs(String searchText);
+      resultsofsearchingargs(String searchText,String datasetname);
 }

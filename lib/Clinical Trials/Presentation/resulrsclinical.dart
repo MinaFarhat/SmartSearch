@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ir/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart';
+import 'package:ir/Clinical%20Trials/data/model/resultsofsearchingclinical.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import 'textrsultclinical.dart';
@@ -9,10 +8,12 @@ import 'textrsultclinical.dart';
 class ResultsClinical extends StatelessWidget {
   const ResultsClinical({
     required this.searchingtext,
+    required this.resultsofsearchingclinicalEntity,
     required this.onBack,
     super.key,
   });
   final String searchingtext;
+  final ResultsofsearchingclinicalEntity resultsofsearchingclinicalEntity;
   final VoidCallback onBack;
 
   // List<Map<String, dynamic>> results = [
@@ -188,57 +189,28 @@ class ResultsClinical extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
-              BlocBuilder<ResultsofsearchingclinicalcubitCubit,
-                  ResultsofsearchingclinicalcubitState>(
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    success: (resultsofsearchingclinicalentity) => SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      child: ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: resultsofsearchingclinicalentity
-                            .resultsClinical.length,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return TextResultClinical(
-                            title: resultsofsearchingclinicalentity
-                                .resultsClinical[index].title,
-                            summary: resultsofsearchingclinicalentity
-                                .resultsClinical[index].summary,
-                            condition: resultsofsearchingclinicalentity
-                                .resultsClinical[index].condition,
-                            detailedDescription:
-                                resultsofsearchingclinicalentity
-                                    .resultsClinical[index].detailedDescription,
-                            eligibility: resultsofsearchingclinicalentity
-                                .resultsClinical[index].eligibility,
-                          );
-                        },
-                      ),
-                    ),
-                    loading: () => const CircularProgressIndicator(
-                      color: Colors.white,
-                    ),
-                    error: (networkExceptions) => const SizedBox(),
-                    orElse: () => GestureDetector(
-                      onTap: () {
-                        context
-                            .read<ResultsofsearchingclinicalcubitCubit>()
-                            .emitresultsofsearchingclinical(
-                              searchtext: searchingtext,
-                            );
-                      },
-                      child: const Text(
-                        "Reload",
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  );
-                },
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount:
+                      resultsofsearchingclinicalEntity.resultsClinical.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return TextResultClinical(
+                      title: resultsofsearchingclinicalEntity
+                          .resultsClinical[index].title,
+                      summary: resultsofsearchingclinicalEntity
+                          .resultsClinical[index].summary,
+                      condition: resultsofsearchingclinicalEntity
+                          .resultsClinical[index].condition,
+                      detailedDescription: resultsofsearchingclinicalEntity
+                          .resultsClinical[index].detailedDescription,
+                      eligibility: resultsofsearchingclinicalEntity
+                          .resultsClinical[index].eligibility,
+                    );
+                  },
+                ),
               ),
             ],
           ),

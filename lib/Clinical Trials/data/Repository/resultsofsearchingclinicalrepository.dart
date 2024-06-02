@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:ir/Clinical%20Trials/data/Repository/base_repository_clinical.dart';
 import 'package:ir/Clinical%20Trials/data/WebService/resultsofsearchingclinicalwebservice.dart';
 import 'package:ir/Clinical%20Trials/data/model/resultsofsearchingclinical.dart';
 import 'package:ir/Core/Network/network_info.dart';
 import 'package:ir/Core/error/network_exceptions.dart';
-
+@Singleton(as: BaseRepositoryClinical)
 class ResultsofsearchingclinicalrepositoryImpl
     implements BaseRepositoryClinical {
   final NetworkInfo _networkInfo;
@@ -21,11 +22,11 @@ class ResultsofsearchingclinicalrepositoryImpl
 
   @override
   Future<Either<NetworkExceptions, ResultsofsearchingclinicalEntity>>
-      reultsofsearchingclinical(String searchtext) async {
+      reultsofsearchingclinical(String searchtext, String datasetname) async {
     if (await _networkInfo.isConnected) {
       try {
         final response = await _resultsofsearchingclinicalwebservice
-            .reultsofsearchingclinical(searchtext);
+            .reultsofsearchingclinical(searchtext, datasetname);
 
         return Right(response);
       } catch (e) {

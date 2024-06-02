@@ -78,7 +78,9 @@ class HomePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) {
-                                return SearchFieldClinical();
+                                return SearchFieldClinical(
+                                   datasetname: "Clinical Trials",
+                                );
                               }),
                             );
                           },
@@ -137,7 +139,9 @@ class HomePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) {
-                                return SearchFieldArgs();
+                                return SearchFieldArgs(
+                                  datasetname: "Args",
+                                );
                               }),
                             );
                           },
