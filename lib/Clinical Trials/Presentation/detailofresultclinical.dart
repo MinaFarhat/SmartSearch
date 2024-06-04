@@ -76,46 +76,68 @@ class DetailsOfResultsClinical extends StatelessWidget {
               detail(
                 context: context,
                 title: 'The Searching Result:',
-                text: title,
+                text: title
+                    .replaceAll(RegExp(r'\s+'), ' ')
+                    .replaceAll("/", "")
+                    .replaceAll("-", "\n")
+                    .replaceAll(";", " ")
+                    .replaceAllMapped(RegExp(r'\b([1-9]|10)\b'),
+                        (match) => '\n${match.group(0)}'),
               ),
-              detail(
-                context: context,
-                title: 'The Condition:',
-                text: condition,
-              ),
-              detail(
-                context: context,
-                title: 'The Summary:',
-                text: summary,
-              ),
-              detail(
-                context: context,
-                title: 'The Detailed Description:',
-                text: detailedDescription,
-              ),
-              detail(
-                context: context,
-                title: 'The Eligibility:',
-                text: eligibility,
-              ),
+              condition.isNotEmpty
+                  ? detail(
+                      context: context,
+                      title: 'The Condition:',
+                      text: condition
+                          .replaceAll(RegExp(r'\s+'), ' ')
+                          .replaceAll("/", "")
+                          .replaceAll("-", "\n")
+                          .replaceAll(";", " ")
+                          .replaceAllMapped(RegExp(r'\b([1-9]|10)\b'),
+                              (match) => '\n${match.group(0)}'),
+                    )
+                  : Container(),
+              summary.isNotEmpty
+                  ? detail(
+                      context: context,
+                      title: 'The Summary:',
+                      text: summary
+                          .replaceAll(RegExp(r'\s+'), ' ')
+                          .replaceAll("/", "")
+                          .replaceAll("-", "\n")
+                          .replaceAll(";", " ")
+                          .replaceAllMapped(RegExp(r'\b([1-9]|10)\b'),
+                              (match) => '\n${match.group(0)}'),
+                    )
+                  : Container(),
+              detailedDescription.isNotEmpty
+                  ? detail(
+                      context: context,
+                      title: 'The Detailed Description:',
+                      text: detailedDescription
+                          .replaceAll(RegExp(r'\s+'), ' ')
+                          .replaceAll("/", "")
+                          .replaceAll("-", "\n")
+                          .replaceAll(";", " ")
+                          .replaceAllMapped(RegExp(r'\b([1-9]|10)\b'),
+                              (match) => '\n${match.group(0)}'),
+                    )
+                  : Container(),
+              eligibility.isNotEmpty
+                  ? detail(
+                      context: context,
+                      title: 'The Eligibility:',
+                      text: eligibility
+                          .replaceAll(RegExp(r'\s+'), ' ')
+                          .replaceAll("/", "")
+                          .replaceAll("-", "\n")
+                          .replaceAll(";", " ")
+                          .replaceAllMapped(RegExp(r'\b([1-9]|10)\b'),
+                              (match) => '\n${match.group(0)}'),
+                    )
+                  : Container(),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
-              ),
-             ],
-          ),
-        ),
-        bottomNavigationBar: const Padding(
-          padding: EdgeInsets.only(bottom: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Version 1.1.0',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
-                ),
               ),
             ],
           ),
@@ -149,7 +171,7 @@ class DetailsOfResultsClinical extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.9,
             child: Text(
               text,
-              maxLines: 10,
+              maxLines: 200,
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -158,7 +180,7 @@ class DetailsOfResultsClinical extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
+            height: MediaQuery.of(context).size.height * 0.02,
           ),
         ],
       ),

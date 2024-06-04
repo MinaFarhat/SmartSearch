@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
                             Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) {
                                 return SearchFieldClinical(
-                                   datasetname: "Clinical Trials",
+                                   datasetname: "clinicaltrials/2017/trec-pm-2017",
                                 );
                               }),
                             );
@@ -140,7 +140,7 @@ class HomePage extends StatelessWidget {
                             Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) {
                                 return SearchFieldArgs(
-                                  datasetname: "Args",
+                                  datasetname: "argsme/2020-04-01/processed/touche-2022-task-1",
                                 );
                               }),
                             );
