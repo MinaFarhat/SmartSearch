@@ -3,17 +3,16 @@ import 'package:ir/Args/Presentation/detailofresultargs.dart';
 
 // ignore: must_be_immutable
 class TextResultArgs extends StatelessWidget {
-  String title;
-  String summary;
-  String condition;
-  String detailedDescription;
-  String eligibility;
+  String conclusion;
+  String premises;
+  String contextmena;
+  String sentences;
+
   TextResultArgs({
-    required this.title,
-    required this.summary,
-    required this.condition,
-    required this.detailedDescription,
-    required this.eligibility,
+    required this.conclusion,
+    required this.premises,
+    required this.contextmena,
+    required this.sentences,
     super.key,
   });
 
@@ -25,11 +24,10 @@ class TextResultArgs extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) {
             return DetailsOfResultsArgs(
-              title: title,
-              condition: condition,
-              summary: summary,
-              detailedDescription: detailedDescription,
-              eligibility: eligibility,
+              conclusion: conclusion,
+              contextmena: contextmena,
+              premises: premises,
+              sentences: sentences,
             );
           }),
         );
@@ -54,7 +52,18 @@ class TextResultArgs extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.72,
                   child: Text(
-                    title,
+                    conclusion
+                        .replaceAll(RegExp(r'\s+'), ' ')
+                        .replaceAll("/", "")
+                        .replaceAll("-", "\n")
+                        .replaceAll(";", " ")
+                        .replaceAll("[", "")
+                        .replaceAll("]", "")
+                        .replaceAll("{", "")
+                        .replaceAll("}", "")
+                        .replaceAll("(", "")
+                        .replaceAll(")", ""),
+                        
                     maxLines: 3,
                     style: TextStyle(
                       fontSize: 17,
@@ -71,7 +80,17 @@ class TextResultArgs extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 65),
               child: Text(
-                summary,
+                premises
+                    .replaceAll(RegExp(r'\s+'), ' ')
+                    .replaceAll("/", "")
+                    .replaceAll("-", "\n")
+                    .replaceAll(";", " ")
+                    .replaceAll("[", "")
+                    .replaceAll("]", "")
+                    .replaceAll("{", "")
+                    .replaceAll("}", "")
+                    .replaceAll("(", "")
+                    .replaceAll(")", ""),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(

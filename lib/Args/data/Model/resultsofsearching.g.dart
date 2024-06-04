@@ -24,19 +24,17 @@ Map<String, dynamic> _$ResultsofsearchingEntityToJson(
 ResultsOfSearchingData _$ResultsOfSearchingDataFromJson(
         Map<String, dynamic> json) =>
     ResultsOfSearchingData(
-      title: json['title'] as String,
-      condition: json['condition'] as String,
-      summary: json['summary'] as String,
-      detailedDescription: json['detailed_description'] as String,
-      eligibility: json['eligibility'] as String,
+      conclusion: json['conclusion'] as String,
+      premises: json['premises'] as String,
+      contextmena: json['context'] as String,
+      sentences: json['sentences'] as String,
     );
 
 Map<String, dynamic> _$ResultsOfSearchingDataToJson(
         ResultsOfSearchingData instance) =>
     <String, dynamic>{
-      'title': instance.title,
-      'condition': instance.condition,
-      'summary': instance.summary,
-      'detailed_description': instance.detailedDescription,
-      'eligibility': instance.eligibility,
+      'conclusion': instance.conclusion,
+      'premises': instance.premises,
+      'context': instance.contextmena,
+      'sentences': instance.sentences,
     };

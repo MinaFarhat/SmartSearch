@@ -3,17 +3,15 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 // ignore: must_be_immutable
 class DetailsOfResultsArgs extends StatelessWidget {
-  String title;
-  String condition;
-  String summary;
-  String detailedDescription;
-  String eligibility;
+  String conclusion;
+  String premises;
+  String contextmena;
+  String sentences;
   DetailsOfResultsArgs({
-    required this.title,
-    required this.condition,
-    required this.summary,
-    required this.detailedDescription,
-    required this.eligibility,
+    required this.conclusion,
+    required this.premises,
+    required this.contextmena,
+    required this.sentences,
     super.key,
   });
 
@@ -76,64 +74,68 @@ class DetailsOfResultsArgs extends StatelessWidget {
               detail(
                 context: context,
                 title: 'The Searching Result:',
-                text: title
-                    .replaceAll(RegExp(r'\s+'), ' ')
-                    .replaceAll("/", "")
-                    .replaceAll("-", "\n")
-                    .replaceAll(";", " ")
-                    .replaceAllMapped(RegExp(r'\b([1-9]|10)\b'),
-                        (match) => '\n${match.group(0)}'),
+                text: conclusion
+                   .replaceAll(RegExp(r'\s+'), ' ')
+                          .replaceAll("/", "")
+                          .replaceAll("-", "\n")
+                          .replaceAll(";", " ")
+                          .replaceAll("[", "")
+                          .replaceAll("]", "")
+                          .replaceAll("{", "")
+                          .replaceAll("}", "")
+                          .replaceAll("(", "")
+                          .replaceAll(")", "")
               ),
-              condition.isNotEmpty
+              premises.isNotEmpty
                   ? detail(
                       context: context,
-                      title: 'The Condition:',
-                      text: condition
+                      title: 'The Premises:',
+                      text: premises
                           .replaceAll(RegExp(r'\s+'), ' ')
                           .replaceAll("/", "")
                           .replaceAll("-", "\n")
                           .replaceAll(";", " ")
-                          .replaceAllMapped(RegExp(r'\b([1-9]|10)\b'),
-                              (match) => '\n${match.group(0)}'),
+                          .replaceAll("[", "")
+                          .replaceAll("]", "")
+                          .replaceAll("{", "")
+                          .replaceAll("}", "")
+                          .replaceAll("(", "")
+                          .replaceAll(")", "")
                     )
                   : Container(),
-              summary.isNotEmpty
+              contextmena.isNotEmpty
                   ? detail(
                       context: context,
-                      title: 'The Summary:',
-                      text: summary
-                          .replaceAll(RegExp(r'\s+'), ' ')
+                      title: 'The Context:',
+                      text: contextmena
+                         .replaceAll(RegExp(r'\s+'), ' ')
                           .replaceAll("/", "")
                           .replaceAll("-", "\n")
                           .replaceAll(";", " ")
-                          .replaceAllMapped(RegExp(r'\b([1-9]|10)\b'),
-                              (match) => '\n${match.group(0)}'),
+                          .replaceAll("[", "")
+                          .replaceAll("]", "")
+                          .replaceAll("{", "")
+                          .replaceAll("}", "")
+                          .replaceAll("(", "")
+                          .replaceAll(")", "")
                     )
                   : Container(),
-              detailedDescription.isNotEmpty
+              sentences.isNotEmpty
                   ? detail(
                       context: context,
-                      title: 'The Detailed Description:',
-                      text: detailedDescription
+                      title: 'The Sentences:',
+                      text: sentences
                           .replaceAll(RegExp(r'\s+'), ' ')
                           .replaceAll("/", "")
                           .replaceAll("-", "\n")
                           .replaceAll(";", " ")
-                          .replaceAllMapped(RegExp(r'\b([1-9]|10)\b'),
-                              (match) => '\n${match.group(0)}'),
-                    )
-                  : Container(),
-              eligibility.isNotEmpty
-                  ? detail(
-                      context: context,
-                      title: 'The Eligibility:',
-                      text: eligibility
-                          .replaceAll(RegExp(r'\s+'), ' ')
-                          .replaceAll("/", "")
-                          .replaceAll("-", "\n")
-                          .replaceAll(";", " ")
-                          .replaceAllMapped(RegExp(r'\b([1-9]|10)\b'),
-                              (match) => '\n${match.group(0)}'),
+                          .replaceAll("[", "")
+                          .replaceAll("]", "")
+                          .replaceAll("{", "")
+                          .replaceAll("}", "")
+                          .replaceAll("(", "")
+                          .replaceAll(")", "")
+                          
                     )
                   : Container(),
               SizedBox(

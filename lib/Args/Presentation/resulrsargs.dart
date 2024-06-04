@@ -195,14 +195,14 @@ class ResultsArgs extends StatelessWidget {
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return TextResultArgs(
-                      title: resultsofsearchingentity.results[index].title,
-                      summary: resultsofsearchingentity.results[index].summary,
-                      condition:
-                          resultsofsearchingentity.results[index].condition,
-                      detailedDescription: resultsofsearchingentity
-                          .results[index].detailedDescription,
-                      eligibility:
-                          resultsofsearchingentity.results[index].eligibility,
+                      conclusion:
+                          resultsofsearchingentity.results[index].conclusion,
+                      premises:
+                          resultsofsearchingentity.results[index].premises,
+                      contextmena:
+                          resultsofsearchingentity.results[index].contextmena,
+                      sentences:
+                          resultsofsearchingentity.results[index].sentences,
                     );
                   },
                 ),

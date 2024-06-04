@@ -19,25 +19,29 @@ class ResultsofsearchingEntity {
 
 @JsonSerializable()
 class ResultsOfSearchingData {
-  @JsonKey(name: "title")
-  final String title;
-  @JsonKey(name: "condition")
-  final String condition;
-  @JsonKey(name: "summary")
-  final String summary;
-  @JsonKey(name: "detailed_description")
-  final String detailedDescription;
-  @JsonKey(name: "eligibility")
-  final String eligibility;
+  @JsonKey(name: "conclusion")
+  final String conclusion;
+  @JsonKey(name: "premises")
+  final String premises;
+  @JsonKey(name: "context")
+  final String contextmena;
+  @JsonKey(name: "sentences")
+  final String sentences;
 
-  // Constructor
   ResultsOfSearchingData({
-    required this.title,
-    required this.condition,
-    required this.summary,
-    required this.detailedDescription,
-    required this.eligibility,
+    required this.conclusion,
+    required this.premises,
+    required this.contextmena,
+    required this.sentences,
   });
+  // Constructor
+  // ResultsOfSearchingData({
+  //   required this.title,
+  //   required this.condition,
+  //   required this.summary,
+  //   required this.detailedDescription,
+  //   required this.eligibility,
+  // });
 
   factory ResultsOfSearchingData.fromJson(Map<String, dynamic> json) =>
       _$ResultsOfSearchingDataFromJson(json);
