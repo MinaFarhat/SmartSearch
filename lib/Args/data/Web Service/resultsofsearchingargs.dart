@@ -19,7 +19,6 @@ class ResultsofsearchingargswebserviceImpl
   @override
   Future<ResultsofsearchingEntity> resultsofsearchingargs(
       String searchtext, String datasetname) async {
-         ///TODO:check the ip for ur mobile when u run the serve
     final response = await _apiConsumer.post("http://127.0.0.1:8000/query",
         body: {'query': searchtext, "dataset": datasetname});
     return ResultsofsearchingEntity.fromJson(response);

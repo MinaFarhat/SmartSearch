@@ -19,12 +19,8 @@ class ResultsofsearchingclinicalwebserviceImpl
   @override
   Future<ResultsofsearchingclinicalEntity> reultsofsearchingclinical(
       String searchtext, String datasetname) async {
-    print("hey mina");
-    final response = await _apiConsumer
-
-        ///TODO:check the ip for ur mobile when u run the serve
-        .post("http://10.0.2.2:8000/query",
-            body: {"dataset": datasetname, 'query': searchtext});
+    final response = await _apiConsumer.post("http://10.0.2.2:8000/query",
+        body: {"dataset": datasetname, 'query': searchtext});
 
     return ResultsofsearchingclinicalEntity.fromJson(response);
   }
