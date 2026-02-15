@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:ir/Args/data/Model/resultsofsearching.dart';
-import 'package:ir/Core/api/api_consumer.dart';
+import 'package:smartsearch/Args/data/Model/resultsofsearching.dart';
+import 'package:smartsearch/Core/api/api_consumer.dart';
 
 abstract class Resultsofsearchingargswebservice {
   Future<ResultsofsearchingEntity> resultsofsearchingargs(

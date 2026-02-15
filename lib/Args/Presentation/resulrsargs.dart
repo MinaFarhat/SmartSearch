@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ir/Args/Presentation/textrsultargs.dart';
-import 'package:ir/Args/data/Model/resultsofsearching.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:smartsearch/Args/Presentation/textrsultargs.dart';
+import 'package:smartsearch/Args/data/Model/resultsofsearching.dart';
 
 // ignore: must_be_immutable
 class ResultsArgs extends StatelessWidget {

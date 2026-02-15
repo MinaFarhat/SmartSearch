@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:ir/Args/Presentation/resulrsargs.dart';
-import 'package:ir/Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
-import 'package:ir/Core/error/network_exceptions.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:smartsearch/Args/Presentation/resulrsargs.dart';
+import 'package:smartsearch/Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
+import 'package:smartsearch/Core/error/network_exceptions.dart';
 
 // ignore: must_be_immutable
 class SearchFieldArgs extends StatelessWidget {

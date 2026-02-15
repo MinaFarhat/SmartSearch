@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ir/Clinical%20Trials/data/model/resultsofsearchingclinical.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:smartsearch/Clinical%20Trials/data/model/resultsofsearchingclinical.dart';
 
 import 'textrsultclinical.dart';
 

@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:ir/Clinical%20Trials/data/model/resultsofsearchingclinical.dart';
-import 'package:ir/Core/api/api_consumer.dart';
+import 'package:smartsearch/Clinical%20Trials/data/model/resultsofsearchingclinical.dart';
+import 'package:smartsearch/Core/api/api_consumer.dart';
 
 abstract class Resultsofsearchingclinicalwebservice {
   Future<ResultsofsearchingclinicalEntity> reultsofsearchingclinical(

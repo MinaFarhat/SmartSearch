@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ir/Clinical%20Trials/Presentation/detailofresultclinical.dart';
+import 'package:smartsearch/Clinical%20Trials/Presentation/detailofresultclinical.dart';
 
 // ignore: must_be_immutable
 class TextResultClinical extends StatelessWidget {

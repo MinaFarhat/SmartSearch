@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:ir/Clinical%20Trials/data/Repository/base_repository_clinical.dart';
-import 'package:ir/Clinical%20Trials/data/model/resultsofsearchingclinical.dart';
-import 'package:ir/Core/error/network_exceptions.dart';
+import 'package:smartsearch/Clinical%20Trials/data/Repository/base_repository_clinical.dart';
+import 'package:smartsearch/Clinical%20Trials/data/model/resultsofsearchingclinical.dart';
+import 'package:smartsearch/Core/error/network_exceptions.dart';
 
 part 'resultsofsearchingclinicalcubit_state.dart';
 part 'resultsofsearchingclinicalcubit_cubit.freezed.dart';

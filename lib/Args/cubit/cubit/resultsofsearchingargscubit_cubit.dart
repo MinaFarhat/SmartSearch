@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:ir/Args/data/Model/resultsofsearching.dart';
-import 'package:ir/Args/data/Repositry/base_repository.dart';
-import 'package:ir/Core/error/network_exceptions.dart';
+import 'package:smartsearch/Args/data/Model/resultsofsearching.dart';
+import 'package:smartsearch/Args/data/Repositry/base_repository.dart';
+import 'package:smartsearch/Core/error/network_exceptions.dart';
 
 part 'resultsofsearchingargscubit_state.dart';
 part 'resultsofsearchingargscubit_cubit.freezed.dart';

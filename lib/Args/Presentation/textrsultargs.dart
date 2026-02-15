@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ir/Args/Presentation/detailofresultargs.dart';
+import 'package:smartsearch/Args/Presentation/detailofresultargs.dart';
 
 // ignore: must_be_immutable
 class TextResultArgs extends StatelessWidget {

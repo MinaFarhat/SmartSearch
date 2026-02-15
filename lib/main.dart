@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ir/Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
-import 'package:ir/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart';
-import 'package:ir/homepage.dart';
-import 'package:ir/injection.dart';
+import 'package:smartsearch/Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart';
+import 'package:smartsearch/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart';
+import 'package:smartsearch/homepage.dart';
+import 'package:smartsearch/injection.dart';
 
 void main() async {
   await configureDependencies();

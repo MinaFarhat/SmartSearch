@@ -14,18 +14,18 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:internet_connection_checker/internet_connection_checker.dart'
     as _i6;
 
-import 'Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart' as _i15;
-import 'Args/data/Repositry/base_repository.dart' as _i12;
-import 'Args/data/Repositry/resultsofsearchingargs.dart' as _i13;
-import 'Args/data/Web%20Service/resultsofsearchingargs.dart' as _i11;
+import 'Args/cubit/cubit/resultsofsearchingargscubit_cubit.dart' as _i17;
+import 'Args/data/Repositry/base_repository.dart' as _i15;
+import 'Args/data/Repositry/resultsofsearchingargs.dart' as _i16;
+import 'Args/data/Web%20Service/resultsofsearchingargs.dart' as _i12;
 import 'Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart'
     as _i18;
 import 'Clinical%20Trials/data/Repository/base_repository_clinical.dart'
-    as _i16;
+    as _i13;
 import 'Clinical%20Trials/data/Repository/resultsofsearchingclinicalrepository.dart'
-    as _i17;
-import 'Clinical%20Trials/data/WebService/resultsofsearchingclinicalwebservice.dart'
     as _i14;
+import 'Clinical%20Trials/data/WebService/resultsofsearchingclinicalwebservice.dart'
+    as _i11;
 import 'Core/api/api_consumer.dart' as _i9;
 import 'Core/api/dio_consumer.dart' as _i10;
 import 'Core/api/logging_interceptor.dart' as _i3;
@@ -56,28 +56,28 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i8.NetworkInfo>(() => _i8.NetworkInfoImpl(
         connectionChecker: gh<_i6.InternetConnectionChecker>()));
     gh.singleton<_i9.ApiConsumer>(() => _i10.DioConsumer(gh<_i5.Dio>()));
-    gh.singleton<_i11.Resultsofsearchingargswebservice>(
-        () => _i11.ResultsofsearchingargswebserviceImpl(gh<_i9.ApiConsumer>()));
-    gh.singleton<_i12.ResultsofsearchingargsBaseRepository>(
-        () => _i13.ResultsofsearchingargsRepository(
-              networkinfo: gh<_i8.NetworkInfo>(),
-              resultsofsearchingargswebservice:
-                  gh<_i11.Resultsofsearchingargswebservice>(),
-            ));
-    gh.singleton<_i14.Resultsofsearchingclinicalwebservice>(() =>
-        _i14.ResultsofsearchingclinicalwebserviceImpl(gh<_i9.ApiConsumer>()));
-    gh.factory<_i15.ResultsofsearchingargscubitCubit>(() =>
-        _i15.ResultsofsearchingargscubitCubit(
-            gh<_i12.ResultsofsearchingargsBaseRepository>()));
-    gh.singleton<_i16.BaseRepositoryClinical>(
-        () => _i17.ResultsofsearchingclinicalrepositoryImpl(
+    gh.singleton<_i11.Resultsofsearchingclinicalwebservice>(() =>
+        _i11.ResultsofsearchingclinicalwebserviceImpl(gh<_i9.ApiConsumer>()));
+    gh.singleton<_i12.Resultsofsearchingargswebservice>(
+        () => _i12.ResultsofsearchingargswebserviceImpl(gh<_i9.ApiConsumer>()));
+    gh.singleton<_i13.BaseRepositoryClinical>(
+        () => _i14.ResultsofsearchingclinicalrepositoryImpl(
               networkInfo: gh<_i8.NetworkInfo>(),
               resultsofsearchingclinicalwebservice:
-                  gh<_i14.Resultsofsearchingclinicalwebservice>(),
+                  gh<_i11.Resultsofsearchingclinicalwebservice>(),
             ));
+    gh.singleton<_i15.ResultsofsearchingargsBaseRepository>(
+        () => _i16.ResultsofsearchingargsRepository(
+              networkinfo: gh<_i8.NetworkInfo>(),
+              resultsofsearchingargswebservice:
+                  gh<_i12.Resultsofsearchingargswebservice>(),
+            ));
+    gh.factory<_i17.ResultsofsearchingargscubitCubit>(() =>
+        _i17.ResultsofsearchingargscubitCubit(
+            gh<_i15.ResultsofsearchingargsBaseRepository>()));
     gh.factory<_i18.ResultsofsearchingclinicalcubitCubit>(() =>
         _i18.ResultsofsearchingclinicalcubitCubit(
-            gh<_i16.BaseRepositoryClinical>()));
+            gh<_i13.BaseRepositoryClinical>()));
     return this;
   }
 }

@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:ir/Core/api/api_consumer.dart';
-import 'package:ir/Core/api/end_points.dart';
-import 'package:ir/Core/constant/strings_constants.dart';
+import 'package:smartsearch/Core/api/api_consumer.dart';
+import 'package:smartsearch/Core/api/end_points.dart';
+import 'package:smartsearch/Core/constant/strings_constants.dart';
 
 @Singleton(as: ApiConsumer)
 class DioConsumer implements ApiConsumer {

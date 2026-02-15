@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:ir/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart';
-import 'package:ir/Core/error/network_exceptions.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:smartsearch/Clinical%20Trials/cubit/cubit/resultsofsearchingclinicalcubit_cubit.dart';
+import 'package:smartsearch/Core/error/network_exceptions.dart';
 
 import 'resulrsclinical.dart';
 
